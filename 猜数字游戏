@@ -1,0 +1,29 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+int main()
+{
+	srand((unsigned int)time(NULL));
+	int num=rand()%100+1;
+	int n=0;
+	cout<<"请输入一个数字"<<endl;
+	while(1)
+	{
+	cin>>n;
+	if(n>num)
+	{
+		cout<<"猜大了"<<endl; 
+	}
+	else if(n<num)
+	{
+		cout<<"猜小了"<<endl;
+	}
+	else
+	{
+		cout<<"恭喜你猜中了"<<endl;
+		break;
+	}
+    }
+	return 0;
+} 
