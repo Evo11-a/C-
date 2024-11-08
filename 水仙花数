@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int num=100;
+	int sum=0;
+	do
+	{
+		int a1=num%10;
+		int a2=num/10%10;
+		int a3=num/100;
+		sum=a1*a1*a1+a2*a2*a2+a3*a3*a3;
+		if(sum==num)
+		{
+		    cout<<num<<endl;
+		}
+		num++;
+	}while(num<1000);
+}
+ 
