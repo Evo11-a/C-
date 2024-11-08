@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iomanip> // 需要包含这个头文件来使用setw和setfill
+using namespace std;
+
+int main() {
+    int i, j;
+    for (i = 1; i <= 9; i++) 
+	{
+        for (j = 1; j <= i; j++)
+		{
+            // setw(2) 设置宽度为2，setfill(' ') 设置填充字符为空格
+            // left 表示左对齐，内部使用setw和setfill来实现对齐
+            cout << setw(2) << left << i << "*";
+            cout << setw(2) << left << j << "=";
+            cout << setw(2) << left << i * j << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
