@@ -1,0 +1,94 @@
+#include  <iostream>
+#include <string>
+using namespace std;
+class point
+{
+public:
+	//设置横坐标 
+	int setx(int x)
+	{
+		m_x=x;
+	} 
+	//获取横坐标 
+	int getx()
+	{
+		return m_x;
+	}
+	//设置纵坐标 
+	int sety(int y)
+	{
+		m_y=y;
+	} 
+	//获取纵坐标 
+	int gety()
+	{
+		return m_y;
+	}
+	//建议将属性设置为私有，对外提供接口
+private:
+	 int m_x;
+	 int m_y;
+};
+class circle
+{
+public:
+	//设置圆心 
+	void setcenter(point c)
+	{
+		center=c;
+	}
+	//获取圆心 
+	point getcenter()
+	{
+		return center;
+	}
+	//设置半径 
+	int setr(int r)
+	{
+		m_r=r;;
+	}
+	//获取半径 
+	int getr()
+	{
+		return m_r;
+	}
+private:
+	point center;
+	int m_r;
+};
+void iscircle(circle &c1,point &c)
+{
+	int distance=((c1.getcenter().getx())-c.getx())*((c1.getcenter().getx())-c.getx())+((c1.getcenter().gety())-c.gety())*((c1.getcenter().gety())-c.gety());
+	int r=(c1.getr())*(c1.getr());
+	if(distance==r)
+	{
+		cout<<"点在圆上"<<endl;
+	}
+	else if(distance>r)
+	{
+		cout<<"点在圆外"<<endl;
+	}
+	else
+	{
+		cout<<"点在圆内"<<endl;
+    } 
+}
+int main()
+{
+	//实例化圆 
+	circle c1;
+	//实例化点 
+	point c; 
+	c1.setr(10);
+	point center;
+	//设置圆心 
+	center.setx(10);
+	center.sety(0);
+	c1.setcenter(center);
+	//设置点 
+	c.setx(10);
+	c.sety(10);
+	//调用判断 
+	iscircle(c1,c); 
+	return 0; 
+}
