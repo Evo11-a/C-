@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class claculate
+{
+public:
+	virtual int generate()//虚函数-抽象计算器
+	{
+		return 0;
+	}
+	int a;
+	int b;
+};
+class add :public claculate//多态实现
+{
+public:
+	int generate()
+	{
+		return a + b;
+	}
+};
+class sub :public claculate
+{
+public:
+	int generate()
+	{
+		return a - b;
+	}
+};
+class mul :public claculate
+{
+public:
+	int generate()
+	{
+		return a * b;
+	}
+};
+void test()
+{
+	claculate* c=new add;//堆区开辟空间
+	c->a = 10;
+	c->b = 10;
+	cout << c->a << "+" << c->b << "=" << c->generate() << endl;
+	delete c;
+	c= new sub;
+	c->a = 10;
+	c->b = 10;
+	cout << c->a << "-" << c->b << "=" << c->generate() << endl;
+	delete c;
+	c = new mul;
+	c->a = 10;
+	c->b = 10;
+	cout << c->a << "*" << c->b << "=" << c->generate() << endl;
+	delete c;
+	
+}
+int main()
+{
+	test();
+	return 0;
+}
